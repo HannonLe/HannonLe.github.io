@@ -201,11 +201,15 @@ function RadialChart() {
 			.attr('d', arc_inner.endAngle(twoPi * growth))
 			.on("mouseover", function() {
 				d3.select(this)
-				.attr('d', arc_inner_mouseover.endAngle(twoPi * growth));
+					.transition()
+					.duration(200)
+					.attr('d', arc_inner_mouseover.endAngle(twoPi * growth));
 			})
 			.on("mouseout", function() {
 				d3.select(this)
-				.attr('d', arc_inner.endAngle(twoPi * growth));
+					.transition()
+					.duration(200)
+					.attr('d', arc_inner.endAngle(twoPi * growth));
 			});
 
 		// middle text
